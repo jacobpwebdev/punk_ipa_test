@@ -26,7 +26,13 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/,
-                loader: 'url-loader?limit=10000&name=img/[name].[ext]'
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        name: "name=img/[name].[ext]",
+                    }
+                }
             }
         ]
     },
