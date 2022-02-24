@@ -6,7 +6,6 @@ import './style/style.scss';
 const App = () => {
   return (
     <div>
-        <h1 className="main_header">Punk IPA API Consumer</h1>
         <Home />
     </div>
   );
