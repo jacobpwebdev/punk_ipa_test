@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import './index.css';
+import {Home} from "./pages/Home";
+import './style/style.css';
 
 const App = () => {
   return (
     <div>
-        <div>Welcome to my-webpack-react-starter</div>
+        <h1 className="main_header">Punk IPA API Consumer</h1>
+        <Home />
     </div>
   );
 };
