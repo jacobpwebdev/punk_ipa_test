@@ -1,0 +1,77 @@
+.accordion {
+    width: 700px;
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+
+    &__header {
+        background: $header-color;
+        color: $font-color-light;
+        padding: 15px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        display: flex;
+        line-height: 30px;
+    }
+
+    &__closeAll {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-left: auto;
+        color: $font-color-light;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: border 0.25s ease-in;
+        height: 30px;
+        width: 30px;
+        position: relative;
+        border-radius: 3px;
+
+        & [class*="fa"] {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &:hover {
+            border-color: $border-color;
+        }
+    }
+
+    &__item {
+        
+        &__header {
+            border: 1px solid $border-color;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.1rem;
+
+            &:hover, &:focus {
+                background: $hover-state-light;
+                outline: none;
+                border: 1px solid $border-color;
+            }
+        }
+
+        &__body {
+            transition: height 0.25s ease-in-out, opacity 0.15s ease-in-out, padding 0.15s ease-in-out;
+            padding: 15px;
+            border-left: 1px solid $border-color;
+            border-right: 1px solid $border-color;
+
+            &--open {
+                height: 100px;
+                opacity: 1;
+                padding: 15px;
+            }
+
+            &--closed {
+                height: 0px;
+                overflow: hidden;
+                opacity: 0;
+                padding: 0 15px;
+            }
+        }
+    }
+}
