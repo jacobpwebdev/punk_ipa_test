@@ -4,6 +4,6 @@ To use the application:
 
 ```npm install```
 
-Then in the route folder:
+Then in the root folder:
 
 ```npm run start```
