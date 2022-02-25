@@ -1,30 +1,23 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React from "react";
 
-import { getBeers } from "../../API/index.js";
-import { Accordion } from "../../components/Accordion"
+import { Accordion } from "../../components/Accordion";
+import { CTAGrid } from "../../components/CTA_Grid";
+
+import { useHome } from "./useHome";
 
 export const Home = () => {
-    const [beers, setBeers] = useState([]);
-
-    useEffect(() => {
-        getBeers().then(beers => {
-            setBeers(beers.data);
-        }).catch(() => {
-            alert("An error occured, please refresh the page");
-        })
-    }, []);
-
-    const beerAccordionItems = useMemo(() => beers.map(({ name, tagline, first_brewed }) => ({
-        title: name,
-        body: `
-            Tagline: ${tagline} 
-            First brewed: ${first_brewed}`
-    })
-    ), [beers]);
+    const {
+        beerAccordionItems,
+        beerGridItems
+    } = useHome();
 
     return (
         <div>
-            <h1>Punk IPA API</h1>
+            <h1 className="pageHeader">Punk IPA API Consumer App<div className="pageHeader__author">By Jacob Poole</div></h1>
+            <CTAGrid
+                gridItems={beerGridItems}
+                fieldsToFilterOn={["name", "ingredients", "description"]}
+            />
             <Accordion accordionItems={beerAccordionItems} />
         </div>
     )

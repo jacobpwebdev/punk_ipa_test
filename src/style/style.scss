@@ -1,10 +1,31 @@
 html {
     font-family: Helvetica;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 @import "./modules/colours";
+
+.pageHeader {
+    background: $header-color;
+    color: $font-color-light;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+
+    &__author {
+        margin-left: auto;
+        font-size: 0.9rem;
+        font-weight: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
 @import "./modules/accordion";
+@import "./modules/ctaGrid";

@@ -1,0 +1,90 @@
+.ctaGrid {
+    margin: 0 auto;
+    max-width: 90%;
+    margin-bottom: 50px;
+
+    &__header {
+        background: $header-color;
+        color: $font-color-light;
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+        row-gap: 10px;
+        flex-wrap: wrap;
+        & input {
+            font-size: 1.2rem;
+            padding: 5px 6px;
+            max-width: 100%;
+        }
+    }
+
+    &__sortWrapper {
+        margin-left: auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__sort {
+        height: 36px;
+        padding: 8px;
+        border: 1px solid $border-color;
+        background: $light-background;
+        cursor: pointer;
+        border-radius: 2px;
+
+        &--active {
+            background: #B0C4DE;
+        }
+
+        &:first-of-type {
+            margin-left: auto;
+            margin-right: 5px;   
+        }
+    }
+
+    &__items {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+        gap: 10px;
+        row-gap: 10px;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+
+            &__abv {
+                margin-left: auto;
+            }
+
+            &__header {
+                padding: 15px;
+                background: white;
+                flex-grow: 1;
+                display: flex;
+                border: 1px solid $light-background;
+            }
+
+            &__content {
+                background: $light-background;
+            }
+
+            &__image {
+                height: 200px;
+                width: 200px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 15px;
+                margin: 0 auto;
+
+                & img {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+        }
+    }
+}

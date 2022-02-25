@@ -20,7 +20,12 @@ export const Accordion = ({
                 Select a fine brew from the list to learn more about it
                 {
                     !!openAccordions.length && 
-                    <div className="accordion__closeAll" onClick={closeAllOnClick} title="Close all">
+                    <div 
+                        className="accordion__closeAll" 
+                        onClick={closeAllOnClick} 
+                        tabIndex={0} 
+                        title="Close all"
+                    >
                         <i className="fa-solid fa-xmark"></i>
                     </div>
                 }
