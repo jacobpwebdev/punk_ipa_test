@@ -46,6 +46,7 @@
             padding: 15px;
             cursor: pointer;
             font-size: 1.1rem;
+            background: $light-background;
 
             &:hover, &:focus {
                 background: $hover-state-light;
