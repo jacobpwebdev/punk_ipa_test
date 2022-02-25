@@ -6,7 +6,7 @@ export const useAccordion = ({
 }) => {
     const [openAccordions, setOpenAccordions] = useState([]);
 
-    const closeAllOnClick = useCallback(() => {
+    const closeAllAccordions = useCallback(() => {
         setOpenAccordions([]);
     }, [setOpenAccordions]);
 
@@ -34,6 +34,14 @@ export const useAccordion = ({
 
     }, [openAccordions, setOpenAccordions, allowMultipleAccordionOpen, canCloseAccordions]);
 
+    const closeAllOnKeydown = useCallback((evt) => {
+        switch (evt.keyCode) {
+            case 13:
+                closeAllAccordions();
+                break;
+        }
+    }, [closeAllAccordions]);
+
     const accordionItemClicked = useCallback((index) => {
         closeOrOpenAccordion(index)
     }, [closeOrOpenAccordion]);
@@ -47,9 +55,10 @@ export const useAccordion = ({
     }, [closeOrOpenAccordion])
 
     return {
-        closeAllOnClick,
+        closeAllOnClick: closeAllAccordions,
         openAccordions,
         accordionItemClicked,
         accordionItemKeyDown,
+        closeAllOnKeydown,
     }
 }

@@ -4,7 +4,8 @@ import { getBeers } from "../../API/index.js";
 
 export const useHome = () => {
     const [beers, setBeers] = useState([]);
-
+    
+    // fetch beers on load. This could be re-called with a refresh etc.
     useEffect(() => {
         getBeers().then(beers => {
             setBeers(beers.data);
@@ -13,6 +14,7 @@ export const useHome = () => {
         })
     }, []);
 
+    // manipulate beer items from API for use in the accordion. Typescript makes this a lot easier for use throughout the app :D 
     const beerAccordionItems = useMemo(() => beers.map(({ name, tagline, first_brewed }) => ({
         title: name,
         body: `
@@ -21,6 +23,7 @@ export const useHome = () => {
     })
     ), [beers]);
 
+    // manipulate beer items from API for use in the grid. Typescript makes this a lot easier for use throughout the app :D 
     const beerGridItems = useMemo(() => beers.map(({ name, description, ingredients, food_pairing, image_url, abv }) => {
         const ingredientsFlat = [
             ...ingredients.hops.flatMap(hop => {

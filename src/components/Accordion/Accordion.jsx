@@ -9,6 +9,7 @@ export const Accordion = ({
 }) => {
     const {
         closeAllOnClick,
+        closeAllOnKeydown,
         openAccordions,
         accordionItemClicked,
         accordionItemKeyDown
@@ -22,7 +23,8 @@ export const Accordion = ({
                     !!openAccordions.length && 
                     <div 
                         className="accordion__closeAll" 
-                        onClick={closeAllOnClick} 
+                        onClick={closeAllOnClick}
+                        onKeyDown={closeAllOnKeydown}
                         tabIndex={0} 
                         title="Close all"
                     >

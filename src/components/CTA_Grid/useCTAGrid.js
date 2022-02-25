@@ -9,12 +9,11 @@ export const useCTAGrid = ({
     const [sortDirection, setSortDirection] = useState("asc");
 
     const setFilteredItemsFromString = useCallback((filterString) => {
-        console.log(filterString);
         if (filterString === "") {
             setFilteredItems(gridItems);
             return;
         }
-
+        // iterate over supplied array of keys, checking each beer item for a match on the text the user typed
         const filtered = gridItems.filter((item) => fieldsToFilterOn.some(fieldToTest => {
             return item[fieldToTest].toLowerCase().indexOf(filterString.toLowerCase()) > -1;
         })
@@ -22,7 +21,6 @@ export const useCTAGrid = ({
 
         setFilteredItems(filtered);
     }, [setFilteredItems, gridItems, fieldsToFilterOn])
-
 
     const onFilterInputChange = useCallback((evt) => {
         setFilterValue(evt.target.value);
@@ -37,6 +35,7 @@ export const useCTAGrid = ({
         setSortDirection(newSortDirection);
     }, [setSortDirection]);
 
+    // sort items after filtering them
     const sortedItems = useMemo(() => filteredItems.sort(
         (next, prev) => sortDirection === "asc" 
             ? next.abv - prev.abv 
